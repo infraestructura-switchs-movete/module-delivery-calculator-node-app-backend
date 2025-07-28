@@ -26,9 +26,15 @@ FROM node:21-alpine3.18 as deploy
 
 WORKDIR /app
 
-ARG PORT=3001
+ARG PORT=80
 ENV PORT=$PORT
-EXPOSE 3001
+EXPOSE 80
+
+ENV GOOGLE_MAPS_API_KEY=AIzaSyAkAcY2k8f7AVPUia7gpCDLsJ-jrVrFp8I
+
+ENV ARQBS_API_URL=https://panel-movete.is.arqbs.com/api/back-whatsapp-qr-app
+
+
 
 # Copiar solo lo necesario desde el builder
 COPY --from=builder /app/package*.json ./
